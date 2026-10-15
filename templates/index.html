@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Machine Intelligence</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+<div class="background-grid"></div>
+
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <a href="/" class="brand">
+        <span class="brand-icon">⬡</span>
+
+        <div>
+            <strong>MACHINE</strong>
+            <span>INTELLIGENCE</span>
+        </div>
+    </a>
+
+
+    <div class="nav-links">
+
+        <a href="/" class="active">Dashboard</a>
+
+        <a href="/diagnostics">
+            Diagnostics
+        </a>
+
+        <a href="/analytics">
+            Analytics
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- HERO -->
+
+<main class="container">
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            AI-POWERED PREDICTIVE MAINTENANCE
+        </div>
+
+
+        <h1>
+
+            Predict failures
+
+            <span>
+                before they become downtime.
+            </span>
+
+        </h1>
+
+
+        <p class="hero-text">
+
+            Machine learning-powered failure intelligence
+            using operational sensor conditions to identify
+            equipment at risk and support preventive
+            maintenance decisions.
+
+        </p>
+
+
+        <div class="hero-actions">
+
+            <a
+                href="/diagnostics"
+                class="btn btn-primary"
+            >
+
+                Run Machine Diagnostic →
+
+            </a>
+
+
+            <a
+                href="/analytics"
+                class="btn btn-secondary"
+            >
+
+                Explore Analytics
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="hero-visual">
+
+        <div class="scanner-card">
+
+            <div class="scanner-header">
+
+                <span>
+                    SYSTEM STATUS
+                </span>
+
+                <span class="online">
+                    ● ONLINE
+                </span>
+
+            </div>
+
+
+            <div class="scanner-core">
+
+                <div class="outer-ring">
+
+                    <div class="middle-ring">
+
+                        <div class="inner-ring">
+
+                            <span>AI</span>
+
+                            <small>
+                                MONITORING
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="scanner-footer">
+
+                <div>
+                    <span>MODEL</span>
+                    <strong>Random Forest</strong>
+                </div>
+
+                <div>
+                    <span>ROC-AUC</span>
+                    <strong>98.18%</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- KPI SECTION -->
+
+<section class="kpi-grid">
+
+    <div class="kpi-card">
+
+        <span class="kpi-label">
+            DATASET RECORDS
+        </span>
+
+        <strong>
+            10,000
+        </strong>
+
+        <small>
+            Machine observations
+        </small>
+
+    </div>
+
+
+    <div class="kpi-card">
+
+        <span class="kpi-label">
+            OBSERVED FAILURES
+        </span>
+
+        <strong>
+            339
+        </strong>
+
+        <small>
+            3.39% failure rate
+        </small>
+
+    </div>
+
+
+    <div class="kpi-card">
+
+        <span class="kpi-label">
+            TEST ACCURACY
+        </span>
+
+        <strong>
+            99.25%
+        </strong>
+
+        <small>
+            Random Forest
+        </small>
+
+    </div>
+
+
+    <div class="kpi-card">
+
+        <span class="kpi-label">
+            ROC-AUC
+        </span>
+
+        <strong>
+            98.18%
+        </strong>
+
+        <small>
+            Test performance
+        </small>
+
+    </div>
+
+</section>
+
+
+
+<!-- HOW IT WORKS -->
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <span>
+            INTELLIGENCE PIPELINE
+        </span>
+
+        <h2>
+            From machine signals to maintenance decisions
+        </h2>
+
+    </div>
+
+
+    <div class="workflow-grid">
+
+        <div class="workflow-card">
+
+            <div class="workflow-number">
+                01
+            </div>
+
+            <h3>
+                Operational Input
+            </h3>
+
+            <p>
+                Temperature, rotational speed,
+                torque, tool wear and machine type.
+            </p>
+
+        </div>
+
+
+        <div class="workflow-card">
+
+            <div class="workflow-number">
+                02
+            </div>
+
+            <h3>
+                Feature Engineering
+            </h3>
+
+            <p>
+                Mechanical power, thermal difference
+                and wear-load interactions are calculated.
+            </p>
+
+        </div>
+
+
+        <div class="workflow-card">
+
+            <div class="workflow-number">
+                03
+            </div>
+
+            <h3>
+                ML Analysis
+            </h3>
+
+            <p>
+                Random Forest evaluates operating
+                conditions and estimates failure risk.
+            </p>
+
+        </div>
+
+
+        <div class="workflow-card">
+
+            <div class="workflow-number">
+                04
+            </div>
+
+            <h3>
+                Maintenance Intelligence
+            </h3>
+
+            <p>
+                Risk levels and maintenance priorities
+                turn model output into actionable insight.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- MODEL PERFORMANCE -->
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <span>
+            VALIDATED PERFORMANCE
+        </span>
+
+        <h2>
+            Built for failure detection
+        </h2>
+
+    </div>
+
+
+    <div class="performance-layout">
+
+
+        <div class="glass-card">
+
+            <h3>
+                Held-Out Test Performance
+            </h3>
+
+
+            <div class="metric-row">
+
+                <span>
+                    Precision
+                </span>
+
+                <strong>
+                    96.49%
+                </strong>
+
+            </div>
+
+
+            <div class="metric-bar">
+
+                <div
+                    class="metric-fill"
+                    style="width:96.49%"
+                ></div>
+
+            </div>
+
+
+            <div class="metric-row">
+
+                <span>
+                    Failure Recall
+                </span>
+
+                <strong>
+                    80.88%
+                </strong>
+
+            </div>
+
+
+            <div class="metric-bar">
+
+                <div
+                    class="metric-fill"
+                    style="width:80.88%"
+                ></div>
+
+            </div>
+
+
+            <div class="metric-row">
+
+                <span>
+                    F1 Score
+                </span>
+
+                <strong>
+                    88.00%
+                </strong>
+
+            </div>
+
+
+            <div class="metric-bar">
+
+                <div
+                    class="metric-fill"
+                    style="width:88%"
+                ></div>
+
+            </div>
+
+
+            <div class="metric-row">
+
+                <span>
+                    ROC-AUC
+                </span>
+
+                <strong>
+                    98.18%
+                </strong>
+
+            </div>
+
+
+            <div class="metric-bar">
+
+                <div
+                    class="metric-fill"
+                    style="width:98.18%"
+                ></div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="glass-card highlight-card">
+
+            <span class="card-tag">
+                MODEL SELECTION
+            </span>
+
+            <h3>
+                Random Forest
+            </h3>
+
+            <p>
+
+                Selected after comparison with Logistic
+                Regression, class-weighted models and
+                Gradient Boosting.
+
+            </p>
+
+
+            <div class="model-stat">
+
+                <strong>
+                    55 / 68
+                </strong>
+
+                <span>
+                    test failures detected
+                </span>
+
+            </div>
+
+
+            <div class="model-stat">
+
+                <strong>
+                    2
+                </strong>
+
+                <span>
+                    false alarms
+                </span>
+
+            </div>
+
+
+            <a
+                href="/analytics"
+                class="text-link"
+            >
+
+                View full model analysis →
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section class="cta-section">
+
+    <div>
+
+        <span>
+            MACHINE HEALTH DIAGNOSTIC
+        </span>
+
+        <h2>
+            Ready to analyze a machine?
+        </h2>
+
+    </div>
+
+
+    <a
+        href="/diagnostics"
+        class="btn btn-primary"
+    >
+
+        Start Diagnostic →
+
+    </a>
+
+</section>
+
+
+</main>
+
+
+
+<footer>
+
+    Predictive Maintenance & Machine Failure
+    Intelligence System
+
+</footer>
+
+
+<script
+    src="{{ url_for('static', filename='js/main.js') }}"
+></script>
+
+</body>
+
+</html>

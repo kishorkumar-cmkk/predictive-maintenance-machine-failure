@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Diagnostic Result
+    </title>
+
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+<div class="background-grid"></div>
+
+
+<nav class="navbar">
+
+    <a href="/" class="brand">
+
+        <span class="brand-icon">
+            ⬡
+        </span>
+
+        <div>
+
+            <strong>
+                MACHINE
+            </strong>
+
+            <span>
+                INTELLIGENCE
+            </span>
+
+        </div>
+
+    </a>
+
+
+    <div class="nav-links">
+
+        <a href="/">
+            Dashboard
+        </a>
+
+        <a
+            href="/diagnostics"
+            class="active"
+        >
+            Diagnostics
+        </a>
+
+        <a href="/analytics">
+            Analytics
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<main class="container">
+
+
+<section class="page-header">
+
+    <span class="eyebrow">
+        ANALYSIS COMPLETE
+    </span>
+
+    <h1>
+        Machine Health Diagnostic
+    </h1>
+
+</section>
+
+
+
+<section
+    class="result-hero risk-{{ risk_class }}"
+>
+
+
+<div class="result-gauge">
+
+
+<div
+    class="gauge"
+    style="--probability: {{ probability }};"
+>
+
+    <div class="gauge-inner">
+
+        <span>
+            FAILURE RISK
+        </span>
+
+        <strong>
+            {{ probability }}%
+        </strong>
+
+        <small class="{{ risk_class }}-text">
+
+            ● {{ risk_level }} RISK
+
+        </small>
+
+    </div>
+
+</div>
+
+
+</div>
+
+
+
+<div class="result-summary">
+
+
+<span class="panel-id">
+    DIAGNOSTIC // RESULT
+</span>
+
+
+<h2>
+    {{ predicted_condition }}
+</h2>
+
+
+<p>
+    {{ recommendation }}
+</p>
+
+
+
+<div class="result-info-grid">
+
+
+<div>
+
+    <span>
+        RISK CLASSIFICATION
+    </span>
+
+    <strong class="{{ risk_class }}-text">
+        {{ risk_level }}
+    </strong>
+
+</div>
+
+
+
+<div>
+
+    <span>
+        MACHINE STATE
+    </span>
+
+    <strong>
+        {{ predicted_condition }}
+    </strong>
+
+</div>
+
+
+
+<div>
+
+    <span>
+        MAINTENANCE PRIORITY
+    </span>
+
+    <strong>
+        {{ maintenance_priority }}
+    </strong>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+<section class="section">
+
+<div class="section-heading">
+
+    <span>
+        OPERATING PROFILE
+    </span>
+
+    <h2>
+        Machine Condition Summary
+    </h2>
+
+</div>
+
+
+
+<div class="condition-grid">
+
+
+<div class="condition-card">
+
+    <span>
+        MACHINE TYPE
+    </span>
+
+    <strong>
+        {{ machine_type }}
+    </strong>
+
+</div>
+
+
+
+<div class="condition-card">
+
+    <span>
+        AIR TEMPERATURE
+    </span>
+
+    <strong>
+        {{ air_temperature }} K
+    </strong>
+
+</div>
+
+
+
+<div class="condition-card">
+
+    <span>
+        PROCESS TEMPERATURE
+    </span>
+
+    <strong>
+        {{ process_temperature }} K
+    </strong>
+
+</div>
+
+
+
+<div class="condition-card">
+
+    <span>
+        ROTATIONAL SPEED
+    </span>
+
+    <strong>
+        {{ rotational_speed|int }} rpm
+    </strong>
+
+</div>
+
+
+
+<div class="condition-card">
+
+    <span>
+        TORQUE
+    </span>
+
+    <strong>
+        {{ torque }} Nm
+    </strong>
+
+</div>
+
+
+
+<div class="condition-card">
+
+    <span>
+        TOOL WEAR
+    </span>
+
+    <strong>
+        {{ tool_wear|int }} min
+    </strong>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+
+<div class="section-heading">
+
+    <span>
+        ENGINEERED SIGNALS
+    </span>
+
+    <h2>
+        Derived Operating Features
+    </h2>
+
+</div>
+
+
+
+<div class="engineered-grid">
+
+
+<div class="glass-card">
+
+    <span>
+        TEMPERATURE DIFFERENCE
+    </span>
+
+    <strong class="big-value">
+        {{ temperature_difference }} K
+    </strong>
+
+    <p>
+        Process temperature minus
+        ambient air temperature.
+    </p>
+
+</div>
+
+
+
+<div class="glass-card">
+
+    <span>
+        MECHANICAL POWER
+    </span>
+
+    <strong class="big-value">
+        {{ "{:,.2f}".format(power_w) }} W
+    </strong>
+
+    <p>
+        Estimated from torque and
+        rotational speed.
+    </p>
+
+</div>
+
+
+
+<div class="glass-card">
+
+    <span>
+        WEAR × TORQUE
+    </span>
+
+    <strong class="big-value">
+        {{ "{:,.2f}".format(wear_torque_interaction) }}
+    </strong>
+
+    <p>
+        Interaction between accumulated
+        tool wear and mechanical load.
+    </p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<div class="result-actions">
+
+    <a
+        href="/diagnostics"
+        class="btn btn-primary"
+    >
+
+        ← Analyze Another Machine
+
+    </a>
+
+
+    <a
+        href="/analytics"
+        class="btn btn-secondary"
+    >
+
+        Explore Model Analytics
+
+    </a>
+
+</div>
+
+
+</main>
+
+
+
+<script
+    src="{{ url_for('static', filename='js/main.js') }}"
+></script>
+
+</body>
+
+</html>

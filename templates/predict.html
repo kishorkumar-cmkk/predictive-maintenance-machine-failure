@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Machine Diagnostic
+    </title>
+
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+<div class="background-grid"></div>
+
+
+<nav class="navbar">
+
+    <a href="/" class="brand">
+
+        <span class="brand-icon">
+            ⬡
+        </span>
+
+        <div>
+
+            <strong>
+                MACHINE
+            </strong>
+
+            <span>
+                INTELLIGENCE
+            </span>
+
+        </div>
+
+    </a>
+
+
+    <div class="nav-links">
+
+        <a href="/">
+            Dashboard
+        </a>
+
+        <a
+            href="/diagnostics"
+            class="active"
+        >
+            Diagnostics
+        </a>
+
+        <a href="/analytics">
+            Analytics
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<main class="container">
+
+<section class="page-header">
+
+    <span class="eyebrow">
+        MACHINE HEALTH ANALYSIS
+    </span>
+
+    <h1>
+        Diagnostic Control Center
+    </h1>
+
+    <p>
+
+        Enter current machine operating conditions.
+        The system will calculate engineered features
+        and estimate machine failure risk.
+
+    </p>
+
+</section>
+
+
+
+<div class="diagnostic-layout">
+
+
+<form
+    action="/predict"
+    method="POST"
+    class="diagnostic-panel"
+>
+
+
+<div class="panel-header">
+
+    <div>
+
+        <span class="panel-id">
+            DIAGNOSTIC // INPUT
+        </span>
+
+        <h2>
+            Operating Conditions
+        </h2>
+
+    </div>
+
+
+    <span class="system-ready">
+        ● SYSTEM READY
+    </span>
+
+</div>
+
+
+
+<div class="form-grid">
+
+
+<div class="form-group">
+
+    <label>
+        MACHINE TYPE
+    </label>
+
+    <select
+        name="machine_type"
+        required
+    >
+
+        <option value="L">
+            L — Low
+        </option>
+
+        <option value="M">
+            M — Medium
+        </option>
+
+        <option value="H">
+            H — High
+        </option>
+
+    </select>
+
+    <small>
+        Product quality category
+    </small>
+
+</div>
+
+
+
+<div class="form-group">
+
+    <label>
+        AIR TEMPERATURE
+    </label>
+
+    <div class="input-unit">
+
+        <input
+            type="number"
+            name="air_temperature"
+            step="0.1"
+            min="250"
+            max="350"
+            value="300.0"
+            required
+        >
+
+        <span>
+            K
+        </span>
+
+    </div>
+
+    <small>
+        Dataset observed: 295.3 – 304.5 K
+    </small>
+
+</div>
+
+
+
+<div class="form-group">
+
+    <label>
+        PROCESS TEMPERATURE
+    </label>
+
+    <div class="input-unit">
+
+        <input
+            type="number"
+            name="process_temperature"
+            step="0.1"
+            min="250"
+            max="400"
+            value="310.0"
+            required
+        >
+
+        <span>
+            K
+        </span>
+
+    </div>
+
+    <small>
+        Dataset observed: 305.7 – 313.8 K
+    </small>
+
+</div>
+
+
+
+<div class="form-group">
+
+    <label>
+        ROTATIONAL SPEED
+    </label>
+
+    <div class="input-unit">
+
+        <input
+            type="number"
+            name="rotational_speed"
+            min="500"
+            max="4000"
+            value="1500"
+            required
+        >
+
+        <span>
+            rpm
+        </span>
+
+    </div>
+
+    <small>
+        Dataset observed: 1,168 – 2,886 rpm
+    </small>
+
+</div>
+
+
+
+<div class="form-group">
+
+    <label>
+        TORQUE
+    </label>
+
+    <div class="input-unit">
+
+        <input
+            type="number"
+            name="torque"
+            step="0.1"
+            min="0"
+            max="100"
+            value="40.0"
+            required
+        >
+
+        <span>
+            Nm
+        </span>
+
+    </div>
+
+    <small>
+        Dataset observed: 3.8 – 76.6 Nm
+    </small>
+
+</div>
+
+
+
+<div class="form-group">
+
+    <label>
+        TOOL WEAR
+    </label>
+
+    <div class="input-unit">
+
+        <input
+            type="number"
+            name="tool_wear"
+            min="0"
+            max="300"
+            value="100"
+            required
+        >
+
+        <span>
+            min
+        </span>
+
+    </div>
+
+    <small>
+        Dataset observed: 0 – 253 min
+    </small>
+
+</div>
+
+
+</div>
+
+
+
+<div class="diagnostic-info">
+
+    <span>
+        ⓘ
+    </span>
+
+    <p>
+
+        Three additional features —
+        temperature difference, mechanical power
+        and wear-torque interaction —
+        are calculated automatically.
+
+    </p>
+
+</div>
+
+
+
+<button
+    type="submit"
+    class="diagnostic-button"
+>
+
+    <span>
+        RUN MACHINE DIAGNOSTIC
+    </span>
+
+    <span>
+        →
+    </span>
+
+</button>
+
+
+</form>
+
+
+
+<aside class="diagnostic-side">
+
+
+<div class="glass-card">
+
+    <span class="card-tag">
+        MODEL
+    </span>
+
+    <h3>
+        Random Forest
+    </h3>
+
+    <p>
+
+        Selected after evaluating multiple
+        classification approaches on the
+        highly imbalanced failure dataset.
+
+    </p>
+
+
+    <div class="side-stat">
+
+        <span>
+            Test Accuracy
+        </span>
+
+        <strong>
+            99.25%
+        </strong>
+
+    </div>
+
+
+    <div class="side-stat">
+
+        <span>
+            Failure Recall
+        </span>
+
+        <strong>
+            80.88%
+        </strong>
+
+    </div>
+
+
+    <div class="side-stat">
+
+        <span>
+            ROC-AUC
+        </span>
+
+        <strong>
+            98.18%
+        </strong>
+
+    </div>
+
+</div>
+
+
+
+<div class="glass-card">
+
+    <span class="card-tag">
+        RISK LEVELS
+    </span>
+
+
+    <div class="risk-guide">
+
+        <div>
+
+            <span class="risk-dot low-dot"></span>
+
+            <strong>
+                LOW
+            </strong>
+
+            <small>
+                &lt; 30%
+            </small>
+
+        </div>
+
+
+        <div>
+
+            <span class="risk-dot medium-dot"></span>
+
+            <strong>
+                MEDIUM
+            </strong>
+
+            <small>
+                30 – 60%
+            </small>
+
+        </div>
+
+
+        <div>
+
+            <span class="risk-dot high-dot"></span>
+
+            <strong>
+                HIGH
+            </strong>
+
+            <small>
+                ≥ 60%
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <p class="tiny-note">
+
+        Risk bands are application-defined
+        interpretation levels, not universal
+        industrial safety thresholds.
+
+    </p>
+
+</div>
+
+
+</aside>
+
+</div>
+
+</main>
+
+
+
+<script
+    src="{{ url_for('static', filename='js/main.js') }}"
+></script>
+
+</body>
+
+</html>
